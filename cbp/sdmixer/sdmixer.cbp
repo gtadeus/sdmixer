@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="sdmixer" />
+		<Option pch_mode="2" />
+		<Option compiler="gnu_gcc_compiler_with_octave_standalone" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/sdmixer" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_compiler_with_octave_standalone" />
+				<Option parameters="~/3Drapidstorm/td/05_ausw -e 1 " />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-std=c++0x" />
+					<Add option="-g" />
+					<Add option="-fopenmp -D_GLIBCXX_PARALLEL=1" />
+					<Add option="-D_GLIBCXX_PARALLEL=1" />
+					<Add option="-D_GLIBCXX_PARALLEL" />
+					<Add directory="/usr/local/include/octave-3.6.2" />
+				</Compiler>
+				<Linker>
+					<Add option="--link-stand-alone" />
+					<Add option="-lgomp" />
+					<Add option="-lboost_system" />
+					<Add option="-lboost_filesystem" />
+					<Add option="-lboost_regex" />
+					<Add directory="/usr/local/lib/octave/3.6.2" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/sdmixer" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_compiler_with_octave_standalone" />
+				<Compiler>
+					<Add option="-march=core2" />
+					<Add option="-O3" />
+					<Add directory="/usr/include/octave-3.6.1" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-lboost_system" />
+					<Add option="-lboost_regex" />
+					<Add option="-lboost_filesystem" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-fexpensive-optimizations" />
+			<Add option="-O3" />
+			<Add option="-std=c++0x" />
+			<Add option="-g" />
+			<Add option="-fopenmp" />
+			<Add directory="/usr/include/octave-3.6.2" />
+			<Add directory="/usr/local/include/octave-3.6.2" />
+			<Add directory="/usr/include/octave-3.6.1" />
+			<Add directory="/usr/include/GraphicsMagick" />
+			<Add directory="/usr/include/ImageMagick" />
+		</Compiler>
+		<Linker>
+			<Add option="-s" />
+			<Add option="--link-stand-alone" />
+			<Add option="-lboost_filesystem" />
+			<Add option="-lboost_regex" />
+			<Add option="-lgomp" />
+			<Add option="-loctinterp" />
+			<Add option="-lcruft" />
+			<Add option="-loctave" />
+			<Add option="-ltiff" />
+			<Add option="-lMagick++" />
+		</Linker>
+		<Unit filename="../../src/Filter.cpp">
+			<Option weight="60" />
+		</Unit>
+		<Unit filename="../../src/LogFile.hpp" />
+		<Unit filename="../../src/OctaveTools.cpp">
+			<Option weight="54" />
+		</Unit>
+		<Unit filename="../../src/OctaveTools.hpp" />
+		<Unit filename="../../src/PairFinder.cpp">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../src/ReadWriteImage.cpp" />
+		<Unit filename="../../src/Reconstructor.cpp" />
+		<Unit filename="../../src/ShowIntensitySpace.cpp" />
+		<Unit filename="../../src/sdmixer.cpp" />
+		<Unit filename="../../src/sdmixer.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
