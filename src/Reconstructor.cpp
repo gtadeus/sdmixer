@@ -344,7 +344,7 @@ int WriteTiff(octave_value& index, FloatNDArray& kernel, std::string raw_input_f
 
     }
 
-/*
+
 if (histo_correct!=0)
 {
    //std::cout << "hist after conv" << std::endl;
@@ -403,7 +403,7 @@ if (histo_correct!=0)
         //img(i)=round(  (mp+1) * (cdf[(int) img(i)]-cdf[0]) );
     }
 
-}*/
+}
 /*
 std::cout << "1hist after hist eq. \n\n" << std::endl;
     for (long g=0; g < (mp+1); ++g)                             //init histogram
