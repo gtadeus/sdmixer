@@ -389,6 +389,7 @@ convolve (const MArray<T>& a, const MArray<R>& b,
     return MArray<T> ();
 
   int nd = std::max (a.ndims (), b.ndims ());
+
   const dim_vector adims = a.dims ().redim (nd), bdims = b.dims ().redim (nd);
   dim_vector cdims = dim_vector::alloc (nd);
 

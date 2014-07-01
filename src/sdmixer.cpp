@@ -3,7 +3,7 @@
 
 
 #define NAME "sdmixer"
-#define SDVERSION "1.94"
+#define SDVERSION "1.95"
 
 
 //using namespace std;

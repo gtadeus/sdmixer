@@ -243,13 +243,19 @@ int ReconstructorMain(boost::property_tree::ptree *pt, fs::path *config_file_ful
 
                 dim_vector dv(max_y, max_x, max_z);         // dimension vector
 
+
                 Matrix ind = max_y * y + x + 1 + z * max_x * max_y ;
                 ov_result = octave_value(ind);
 
+                delete FullData.fortran_vec();
+                delete x.fortran_vec();
+                delete y.fortran_vec();
+                delete z.fortran_vec();
+
                 if(nr_of_dyes == 1)
-                    WriteTiff(ov_result, kernel3D, raw_input_filename, dv, max_y, max_x, max_z, i + 1, histo_correct);
+                    WriteTiff(ov_result, kernel2D, raw_input_filename, dv, max_y, max_x, max_z, i + 1, histo_correct);
                 else
-                    WriteTiff(ov_result, kernel3D, raw_input_filename, dv, max_y, max_x, max_z, i, histo_correct);
+                    WriteTiff(ov_result, kernel2D, raw_input_filename, dv, max_y, max_x, max_z, i, histo_correct);
             }
 
             else{
@@ -338,7 +344,7 @@ int WriteTiff(octave_value& index, FloatNDArray& kernel, std::string raw_input_f
 
     }
 
-
+/*
 if (histo_correct!=0)
 {
    //std::cout << "hist after conv" << std::endl;
@@ -397,7 +403,7 @@ if (histo_correct!=0)
         //img(i)=round(  (mp+1) * (cdf[(int) img(i)]-cdf[0]) );
     }
 
-}
+}*/
 /*
 std::cout << "1hist after hist eq. \n\n" << std::endl;
     for (long g=0; g < (mp+1); ++g)                             //init histogram
@@ -426,7 +432,11 @@ std::cout << "3hist after hist eq." << std::endl;
     img = conv_result(0).array_value();*/
     //std::cout << octave_value(img).matrix_value().column_max().max() << std::endl;
     //NDArray conv_img = convolve(img, kernel, convn_same);
-    FloatNDArray conv_img = convolve(img, kernel, convn_same);
+    std::cout << "Image dim: " << img.ndims() << std::endl;
+    std::cout << "Kernel dim: " << kernel.ndims() << std::endl;
+
+    //NDArray conv_img = convolve(img, kernel, convn_valid);        // funktioniert?
+    FloatNDArray conv_img = convolve(img, kernel, convn_same);        // funktioniert?
 
     //NDArray uint8convimg = octave_value(conv_img).uint8_array_value();
     //std::cout << octave_value(conv_img).matrix_value().column_max().max() << std::endl;
